@@ -1,5 +1,6 @@
 import React from "react";
 import Navigation from "../components/Navigation";
+import { Outlet } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -8,8 +9,14 @@ const Home = () => {
         <h1>Katalog produktů</h1>
         <Navigation />
       </header>
+      <main>
+        <Outlet />
+      </main>
     </div>
   );
 };
 
 export default Home;
+
+
+
