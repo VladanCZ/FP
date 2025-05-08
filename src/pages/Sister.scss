@@ -1,7 +1,83 @@
 @use "../styles/_variables.scss" as vars;
 
 .sister {
-    color: vars.$text-color;
-    font-size: vars.$base-font-size;
-    font-family: vars.$font-primary;
-}
+  color: vars.$text-color;
+  font-family: vars.$font-primary;
+  font-size: vars.$base-font-size;
+  padding: 20px;
+
+  h2 {
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  .sister-gallery {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+
+    @media (min-width: 600px) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @media (min-width: 1024px) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+
+  .sister-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e0e0e0;
+    padding: 12px;
+    transition: transform 0.2s ease;
+  
+    &:hover {
+      transform: translateY(-4px);
+    }
+  
+    img {
+      width: 80%;
+      height: auto;
+      margin: 0 auto;
+      object-fit: contain;
+      border-radius: 6px;
+    }
+  
+    .sister-footer {
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      padding-top: 1rem;
+  
+      p {
+        margin-bottom: 0.8rem;
+        font-size: 0.9rem;
+      }
+  
+      button {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+  
+        &:hover {
+          background-color: #0056b3;
+        }
+      }
+    }
+  }
+}  
+
