@@ -1,11 +1,8 @@
-
-
 @use "../styles/_variables.scss" as vars;
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
 }
 
 .navigation {
@@ -14,8 +11,8 @@
     font-family: vars.$font-primary;
 
     display: flex;
-    justify-content: space-evenly; /* Vyrovnání položek rovnoměrně */
-    background-color: #333;
+    justify-content: space-evenly; 
+    background-color: #182537;
     padding: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     
@@ -35,8 +32,8 @@
 /* Pro tablety mezi 768px a 1024px */
 @media (min-width: 768px) and (max-width: 1024px) {
     .navigation {
-        flex-direction: row; /* Horizontální navigace na tabletech */
-        justify-content: space-around; /* Vyrovnání položek */
+        flex-direction: row; 
+        justify-content: space-around; 
     }
 
     .nav-link {
@@ -48,7 +45,7 @@
 /* Pro mobilní zařízení (do 767px) */
 @media (max-width: 767px) {
     .navigation {
-        flex-direction: column; /* Navigace bude vertikální na mobilech */
+        flex-direction: column; 
         align-items: center;
     }
 

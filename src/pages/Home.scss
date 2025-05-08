@@ -1,12 +1,8 @@
-
-
-
 @use "../styles/_variables.scss" as vars;
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
 }
 
 .home {
@@ -16,31 +12,30 @@
 
 .home-page {
     display: flex;
-    flex-direction: column; /* Nastavení flexboxu pro vertikální layout */
-    min-height: 100vh; /* Celková výška pro stránku */
+    flex-direction: column; 
+    min-height: 100vh; 
     margin: 0;
-    width: 100%; /* Zajistí, že stránka se roztáhne přes celou šířku */
+    width: 100%; 
 }
 
 header {
     text-align: center;
-    padding: 20px;
     background-color: #f5f5f5;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 100%; /* Zajistí, že header zabírá celou šířku */
-    flex-shrink: 0; /* Aby se header nezmenšil */
+    width: 100%; 
+    flex-shrink: 0; 
 }
 
 main {
     padding: 20px;
     overflow-y: auto;
-    flex-grow: 1; /* Hlavní obsah roste, aby vyplnil prostor */
+    flex-grow: 1; 
 }
 
 /* Pro tablety mezi 768px a 1024px */
 @media (min-width: 768px) and (max-width: 1024px) {
     .home-page {
-        flex-direction: column; /* Vertikální layout pro tablety */
+        flex-direction: column; 
     }
 
     header {
@@ -56,7 +51,7 @@ main {
 /* Pro desktopová zařízení (1024px a více) */
 @media (min-width: 1024px) {
     .home-page {
-        flex-direction: column; /* Udržujeme vertikální layout */
+        flex-direction: column; 
     }
 
     header {
