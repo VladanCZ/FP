@@ -1,0 +1,7 @@
+@use "../styles/_variables.scss" as vars;
+
+.corridor {
+    color: vars.$text-color;
+    font-size: vars.$base-font-size;
+    font-family: vars.$font-primary;
+}
