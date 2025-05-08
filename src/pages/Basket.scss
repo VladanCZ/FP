@@ -1,7 +1,7 @@
 @use "../styles/_variables.scss" as vars;
 
 .basket {
-    color: vars.$text-color;
+    color: vars.$base-color;
     font-size: vars.$base-font-size;
     font-family: vars.$font-primary;
 }

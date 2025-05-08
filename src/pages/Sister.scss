@@ -1,7 +1,7 @@
 @use "../styles/_variables.scss" as vars;
 
 .sister {
-  color: vars.$text-color;
+  color: vars.$base-color;
   font-family: vars.$font-primary;
   font-size: vars.$base-font-size;
   padding: 20px;
@@ -66,7 +66,7 @@
       button {
         padding: 8px 12px;
         font-size: 0.9rem;
-        background-color: #007bff;
+        background-color: vars.$base-color;
         color: white;
         border: none;
         border-radius: 4px;
