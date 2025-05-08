@@ -1,6 +1,70 @@
+
+
+
 @use "../styles/_variables.scss" as vars;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
 
 .home {
     color: vars.$text-color;
     font-family: vars.$font-primary;
+}
+
+.home-page {
+    display: flex;
+    flex-direction: column; /* Nastavení flexboxu pro vertikální layout */
+    min-height: 100vh; /* Celková výška pro stránku */
+    margin: 0;
+    width: 100%; /* Zajistí, že stránka se roztáhne přes celou šířku */
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: #f5f5f5;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Zajistí, že header zabírá celou šířku */
+    flex-shrink: 0; /* Aby se header nezmenšil */
+}
+
+main {
+    padding: 20px;
+    overflow-y: auto;
+    flex-grow: 1; /* Hlavní obsah roste, aby vyplnil prostor */
+}
+
+/* Pro tablety mezi 768px a 1024px */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .home-page {
+        flex-direction: column; /* Vertikální layout pro tablety */
+    }
+
+    header {
+        text-align: left;
+        padding: 20px;
+    }
+
+    main {
+        padding: 30px;
+    }
+}
+
+/* Pro desktopová zařízení (1024px a více) */
+@media (min-width: 1024px) {
+    .home-page {
+        flex-direction: column; /* Udržujeme vertikální layout */
+    }
+
+    header {
+        text-align: left;
+        padding: 20px;
+    }
+
+    main {
+        padding: 30px;
+    }
 }
