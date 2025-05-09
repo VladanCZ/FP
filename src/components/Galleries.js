@@ -1,24 +1,27 @@
 import React from "react";
 import "./Gallery.scss";
+import { useCart } from "../CartContext";
 
+const Gallery = ({ images }) => {
+  const { dispatch } = useCart();
 
-export const Gallery = ({images}) => {
-
-    const handleAddToCart = (item) => {
-    alert(`Přidáno do košíku: ${item.description}`);
-    //  později pro správu stavu košíku
+  const handleAddToCart = (item) => {
+    dispatch({ type: "ADD_ITEM", payload: item });
   };
 
-    return <div className="gallery">
-        {images.map((img) => (
-          <div key={img.id} className="card">
+  return (
+    <div className="gallery">
+      {images.map((img) => (
+        <div key={img.id} className="card">
           <img src={img.src} alt={img.alt} />
           <div className="gallery-footer">
-            <p>{img.description}</p>
+            <h4>{img.description}</h4>
             <button onClick={() => handleAddToCart(img)}>Přidej do košíku</button>
           </div>
         </div>
-        
-        ))}
-      </div>
-}
+      ))}
+    </div>
+  );
+};
+
+export default Gallery;

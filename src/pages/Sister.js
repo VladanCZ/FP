@@ -1,6 +1,6 @@
 import React from "react";
 import "./Sister.scss";
-import { Gallery } from "../components/Galleries";
+import  Gallery  from "../components/Galleries";
 
 const Sister = () => {
   const images = [
@@ -41,8 +41,6 @@ const Sister = () => {
       description: "Služební terminál ST-20 IP",
     },
   ];
-
-  
 
   return (
     <section className="sister">
