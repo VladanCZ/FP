@@ -4,4 +4,9 @@
     color: vars.$base-color;
     font-size: vars.$base-font-size;
     font-family: vars.$font-primary;
+
+     h2 {
+    margin-bottom: 1rem;
+    text-align: center;
+  }
 }

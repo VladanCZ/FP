@@ -1,5 +1,6 @@
 import React from "react";
 import "./Sister.scss";
+import { Gallery } from "../components/Galleries";
 
 const Sister = () => {
   const images = [
@@ -21,28 +22,32 @@ const Sister = () => {
       alt: "Bezdrátové přenosné tlačítko SOS WB2-S",
       description: "Bezdrátové přenosné tlačítko SOS WB2-S",
     },
+    {
+      id: "DECT",
+      src: "/images/S_Dect_bez-pozadi-1.webp",
+      alt: "Bezdrátový telefon DECT",
+      description: "Bezdrátový telefon DECT",
+    },
+    {
+      id: "PG",
+      src: "/images/S_Pager-PG-bez-pozadi.webp",
+      alt: "Pager textový PG",
+      description: "Pager textový PG",
+    },
+    {
+      id: "ST-20 IP",
+      src: "/images/S_ST-20-IP-bez-pozadi.webp",
+      alt: "Služební terminál ST-20 IP",
+      description: "Služební terminál ST-20 IP",
+    },
   ];
 
-  const handleAddToCart = (item) => {
-    alert(`Přidáno do košíku: ${item.description}`);
-    // tady později můžeš přidat logiku pro správu stavu košíku
-  };
+  
 
   return (
     <section className="sister">
       <h2>Sesterna</h2>
-      <div className="sister-gallery">
-        {images.map((img) => (
-          <div key={img.id} className="sister-card">
-          <img src={img.src} alt={img.alt} />
-          <div className="sister-footer">
-            <p>{img.description}</p>
-            <button onClick={() => handleAddToCart(img)}>Přidej do košíku</button>
-          </div>
-        </div>
-        
-        ))}
-      </div>
+     <Gallery images={images}/>
     </section>
   );
 };
