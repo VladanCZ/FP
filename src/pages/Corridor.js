@@ -29,8 +29,7 @@ const images = [
       description: "LCD panel",
     },
   ];
-
-
+  
  return (
     <section className="corridor">
       <h2>Chodba</h2>

@@ -9,6 +9,10 @@ const Basket = () => {
     dispatch({ type: "UPDATE_QUANTITY", payload: { id, quantity: parseInt(quantity) } });
   };
 
+  const handleRemove = (id) => {
+    dispatch({ type: "REMOVE_FROM_CART", payload: { id } });
+  };
+
   return (
     <div className="basket">
       <h2>Košík</h2>
@@ -26,6 +30,7 @@ const Basket = () => {
                 value={item.quantity}
                 onChange={(e) => handleQuantityChange(item.id, e.target.value)}
               />
+               <button onClick={() => handleRemove(item.id)}>Odstranit</button>
             </li>
           ))}
         </ul>
