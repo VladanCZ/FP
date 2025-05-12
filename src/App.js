@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Navigation from "./components/Navigation";
+import Order from "./pages/Order";
 
 import Home from "./pages/Home";
 import Sister from "./pages/Sister";
@@ -21,10 +21,10 @@ function App() {
           <Route path="Corridor" element={<Corridor />} />
           <Route path="Entrance" element={<Entrance />} />
           <Route path="Basket" element={<Basket />} />
+          <Route path="Order" element={<Order />} /> {/* ← přidáno */}
         </Route>
       </Routes>
     </BrowserRouter>
   );
 }
-
 export default App;
