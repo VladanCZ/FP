@@ -30,7 +30,8 @@ const Order = () => {
     dispatch({ type: "CLEAR_CART" });
 
     // Přesměrování domů
-    navigate("/");
+    navigate("/", { state: { message: "Objednávka byla úspěšně odeslána." } });
+
   };
 
   return (
