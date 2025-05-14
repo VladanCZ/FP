@@ -15,7 +15,15 @@ const Order = () => {
   });
 
   const navigate = useNavigate();
-  const { cart, dispatch } = useCart(); // načti i cart
+  const { cart, dispatch } = useCart();
+
+  // 🔧 Generování ID objednávky
+  const generateOrderId = () => {
+    const now = new Date();
+    const datePart = now.toISOString().slice(0, 10).replace(/-/g, '');
+    const randomPart = Math.floor(Math.random() * 1000000).toString().padStart(6, '0');
+    return `Codaco-${datePart}-${randomPart}`;
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -25,47 +33,86 @@ const Order = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Zformátuj objednávku z košíku
-    const orderDetails = cart.map((item) => {
-      return `${item.description} – ${item.quantity} ks`;
-    }).join("\n");
+    const orderId = generateOrderId();
+
+    // ✅ Zformátovaná objednávka jako HTML seznam
+    const orderDetails = cart
+      .map((item) => `✅ ${item.description} – ${item.quantity} ks`)
+      .join("<br>");
 
     const templateParams = {
+      order_id: orderId,
       from_name: `${formData.firstName} ${formData.lastName}`,
       company: formData.company,
       phone: formData.phone,
       reply_to: formData.email,
+      to_email: formData.email,
       message: formData.message || "—",
-      order_list: orderDetails,
+      order_list_formatted: orderDetails,
     };
 
-    emailjs.send(
-      'service_4qr053r',       // service_id
-      'template_lkxcrbq',      // template_id
-      templateParams,
-      'pXPR8lP3CgV71xnx5'        // public key
-    )
-    .then(() => {
-      alert("Objednávka byla úspěšně odeslána!");
-      dispatch({ type: "CLEAR_CART" });
-      navigate("/", { state: { message: "Objednávka byla úspěšně odeslána." } });
-    })
-    .catch((error) => {
-      console.error("Chyba při odesílání e-mailu:", error);
-      alert("Chyba při odesílání objednávky. Zkuste to prosím znovu.");
-    });
+    emailjs
+      .send(
+        "service_4qr053r",       // Service ID
+        "template_lkxcrbq",      // Template ID
+        templateParams,
+        "pXPR8lP3CgV71xnx5"      // Public key
+      )
+      .then(() => {
+        alert("Objednávka byla úspěšně odeslána!");
+        dispatch({ type: "CLEAR_CART" });
+        navigate("/", { state: { message: "Objednávka byla úspěšně odeslána." } });
+      })
+      .catch((error) => {
+        console.error("Chyba při odesílání e-mailu:", error);
+        alert("Chyba při odesílání objednávky. Zkuste to prosím znovu.");
+      });
   };
 
   return (
     <div className="order-form">
       <h2>Objednávka</h2>
       <form onSubmit={handleSubmit}>
-        <input type="text" name="firstName" placeholder="Jméno" onChange={handleChange} required />
-        <input type="text" name="lastName" placeholder="Příjmení" onChange={handleChange} required />
-        <input type="text" name="company" placeholder="Název firmy nebo zařízení" onChange={handleChange} required />
-        <input type="tel" name="phone" placeholder="Telefon" onChange={handleChange} required />
-        <input type="email" name="email" placeholder="Email" onChange={handleChange} required />
-        <textarea name="message" placeholder="Zpráva" onChange={handleChange} />
+        <input
+          type="text"
+          name="firstName"
+          placeholder="Jméno"
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="text"
+          name="lastName"
+          placeholder="Příjmení"
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="text"
+          name="company"
+          placeholder="Název firmy nebo zařízení"
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="tel"
+          name="phone"
+          placeholder="Telefon"
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="email"
+          name="email"
+          placeholder="Email"
+          onChange={handleChange}
+          required
+        />
+        <textarea
+          name="message"
+          placeholder="Zpráva"
+          onChange={handleChange}
+        />
         <button type="submit">Objednat</button>
       </form>
     </div>
