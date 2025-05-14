@@ -68,16 +68,41 @@
 
 /* Pro mobilní zařízení (do 767px) */
 @media (max-width: 767px) {
-    .navigation {
-        flex-direction: column; 
-        align-items: center;
+  .navigation {
+    flex-direction: column; 
+    align-items: center;
+  }
+
+  .nav-link {
+    padding: 15px 0;
+    font-size: 1.1rem;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Zachováme vodorovné uspořádání ikony a počtu kusů */
+  .cart-link {
+    flex-direction: row; 
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+
+    svg {
+      margin-right: 5px;
     }
 
-    .nav-link {
-        padding: 15px 0;
-        font-size: 1.1rem;
-        width: 100%;
-        text-align: center;
+    .cart-count {
+      position: relative;
+      top: auto;
+      right: auto;
+      margin-left: 5px;
+      background-color: red;
+      border-radius: 50%;
+      padding: 2px 6px;
+      font-size: 0.7rem;
+      font-weight: bold;
     }
+  }
 }
+
 

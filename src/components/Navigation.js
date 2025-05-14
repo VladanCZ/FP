@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useCart } from "../CartContext"; // Uprav cestu podle projektu
+import { useCart } from "../CartContext"; 
 import "./Navigation.scss";
-import { FaShoppingCart } from "react-icons/fa"; // knihovna react-icons
+import { FaShoppingCart } from "react-icons/fa"; 
 
 const navItems = [
   { name: "Sesterna", path: "/Sister" },
