@@ -14,10 +14,11 @@ const Order = () => {
     message: "",
   });
 
+  const [consent, setConsent] = useState(false); // ✅ nový stav pro souhlas
+
   const navigate = useNavigate();
   const { cart, dispatch } = useCart();
 
-  // 🔧 Generování ID objednávky
   const generateOrderId = () => {
     const now = new Date();
     const datePart = now.toISOString().slice(0, 10).replace(/-/g, '');
@@ -33,9 +34,13 @@ const Order = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    if (!consent) {
+      alert("Před odesláním objednávky musíte souhlasit se zpracováním osobních údajů.");
+      return;
+    }
+
     const orderId = generateOrderId();
 
-    // ✅ Zformátovaná objednávka jako HTML seznam
     const orderDetails = cart
       .map((item) => `✅ ${item.description} – ${item.quantity} ks`)
       .join("<br>");
@@ -53,10 +58,10 @@ const Order = () => {
 
     emailjs
       .send(
-        "service_4qr053r",       // Service ID
-        "template_lkxcrbq",      // Template ID
+        "service_4qr053r",
+        "template_lkxcrbq",
         templateParams,
-        "pXPR8lP3CgV71xnx5"      // Public key
+        "pXPR8lP3CgV71xnx5"
       )
       .then(() => {
         alert("Objednávka byla úspěšně odeslána!");
@@ -113,6 +118,27 @@ const Order = () => {
           placeholder="Zpráva"
           onChange={handleChange}
         />
+
+        {/* ✅ Checkbox se souhlasem */}
+        <div className="checkbox-wrapper" style={{ margin: "12px 0" }}>
+          <label>
+            <input
+              type="checkbox"
+              checked={consent}
+              onChange={(e) => setConsent(e.target.checked)}
+              required
+            />{" "}
+            Souhlasím se{" "}
+            <a
+              href="https://www.codaco.cz/bezpecnost-a-ochrana-osobnich-udaju"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              zpracováním osobních údajů
+            </a>
+          </label>
+        </div>
+
         <button type="submit">Objednat</button>
       </form>
     </div>
@@ -120,3 +146,4 @@ const Order = () => {
 };
 
 export default Order;
+
