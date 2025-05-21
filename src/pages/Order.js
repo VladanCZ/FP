@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useCart } from "../CartContext";
+import { useCart } from "../context/CartContext";
 import emailjs from "@emailjs/browser";
+
+import Button from "../components/Button/Button"; 
 import "./Order.scss";
 
 const Order = () => {
@@ -14,8 +16,7 @@ const Order = () => {
     message: "",
   });
 
-  const [consent, setConsent] = useState(false); // ✅ nový stav pro souhlas
-
+  const [consent, setConsent] = useState(false);
   const navigate = useNavigate();
   const { cart, dispatch } = useCart();
 
@@ -78,93 +79,60 @@ const Order = () => {
     <div className="order-form">
       <h2>Objednávka</h2>
       <form onSubmit={handleSubmit}>
-  <div className="form-group">
-    <label htmlFor="firstName">Jméno</label>
-    <input
-      id="firstName"
-      type="text"
-      name="firstName"
-      onChange={handleChange}
-      required
-    />
-  </div>
+        {/* Formulářové pole - nezměněné */}
+        <div className="form-group">
+          <label htmlFor="firstName">Jméno</label>
+          <input id="firstName" type="text" name="firstName" onChange={handleChange} required />
+        </div>
 
-  <div className="form-group">
-    <label htmlFor="lastName">Příjmení</label>
-    <input
-      id="lastName"
-      type="text"
-      name="lastName"
-      onChange={handleChange}
-      required
-    />
-  </div>
+        <div className="form-group">
+          <label htmlFor="lastName">Příjmení</label>
+          <input id="lastName" type="text" name="lastName" onChange={handleChange} required />
+        </div>
 
-  <div className="form-group">
-    <label htmlFor="company">Název firmy nebo zařízení</label>
-    <input
-      id="company"
-      type="text"
-      name="company"
-      onChange={handleChange}
-      required
-    />
-  </div>
+        <div className="form-group">
+          <label htmlFor="company">Název firmy nebo zařízení</label>
+          <input id="company" type="text" name="company" onChange={handleChange} required />
+        </div>
 
-  <div className="form-group">
-    <label htmlFor="phone">Telefon</label>
-    <input
-      id="phone"
-      type="tel"
-      name="phone"
-      onChange={handleChange}
-      required
-    />
-  </div>
+        <div className="form-group">
+          <label htmlFor="phone">Telefon</label>
+          <input id="phone" type="tel" name="phone" onChange={handleChange} required />
+        </div>
 
-  <div className="form-group">
-    <label htmlFor="email">E-mail</label>
-    <input
-      id="email"
-      type="email"
-      name="email"
-      onChange={handleChange}
-      required
-    />
-  </div>
+        <div className="form-group">
+          <label htmlFor="email">E-mail</label>
+          <input id="email" type="email" name="email" onChange={handleChange} required />
+        </div>
 
-  <div className="form-group">
-    <label htmlFor="message">Zpráva (nepovinná)</label>
-    <textarea
-      id="message"
-      name="message"
-      onChange={handleChange}
-      rows={4}
-    />
-  </div>
+        <div className="form-group">
+          <label htmlFor="message">Zpráva (nepovinná)</label>
+          <textarea id="message" name="message" onChange={handleChange} rows={4} />
+        </div>
 
-  <div className="checkbox-wrapper" style={{ margin: "12px 0" }}>
-    <label>
-      <input
-        type="checkbox"
-        checked={consent}
-        onChange={(e) => setConsent(e.target.checked)}
-        required
-      />{" "}
-      Souhlasím se{" "}
-      <a
-        href="https://www.codaco.cz/bezpecnost-a-ochrana-osobnich-udaju"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        zpracováním osobních údajů
-      </a>
-    </label>
-  </div>
+        <div className="checkbox-wrapper" style={{ margin: "12px 0" }}>
+          <label>
+            <input
+              type="checkbox"
+              checked={consent}
+              onChange={(e) => setConsent(e.target.checked)}
+              required
+            />
+            {" "}
+            Souhlasím se{" "}
+            <a
+              href="https://www.codaco.cz/bezpecnost-a-ochrana-osobnich-udaju"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              zpracováním osobních údajů
+            </a>
+          </label>
+        </div>
 
-  <button type="submit">Objednat</button>
-</form>
-
+        
+        <Button type="submit">Objednat</Button>
+      </form>
     </div>
   );
 };
