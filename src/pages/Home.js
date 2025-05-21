@@ -1,6 +1,6 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import Navigation from "../components/Navigation";
+import Navigation from "../components/Navigation/Navigation";
 import { Outlet } from "react-router-dom";
 import "./Home.scss";
 

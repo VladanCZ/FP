@@ -1,6 +1,6 @@
 import React from "react";
 import "./SanitaryFacilities.scss";
-import  Gallery  from "../components/Galleries";
+import  Gallery  from "../components/Gallery/Galleries";
 
 const SanitaryFacilities = () => {
     const images = [

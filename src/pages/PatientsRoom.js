@@ -1,6 +1,6 @@
 import React from "react";
 import "./PatientsRoom.scss";
-import  Gallery  from "../components/Galleries";
+import  Gallery  from "../components/Gallery/Galleries";
 
 const PatientsRoom = () => {
  const images = [

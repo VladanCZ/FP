@@ -1,6 +1,8 @@
 import React from "react";
-import { useCart } from "../CartContext";
+import { useCart } from "../context/CartContext";
 import { useNavigate } from "react-router-dom";
+import Button from "../components/Button/Button";
+
 import "./Basket.scss";
 
 const Basket = () => {
@@ -33,14 +35,18 @@ const Basket = () => {
                   value={item.quantity}
                   onChange={(e) => handleQuantityChange(item.id, e.target.value)}
                 />
-                <button onClick={() => handleRemove(item.id)}>Odstranit</button>
+                <span
+                  className="remove-icon"
+                  onClick={() => handleRemove(item.id)}
+                  title="Odstranit"
+                >
+                  &times;
+                </span>
               </li>
             ))}
           </ul>
           <div className="basket-actions">
-            <button className="continue-btn" onClick={() => navigate("/Order")}>
-              Pokračovat
-            </button>
+            <Button onClick={() => navigate("/Order")}>Pokračovat</Button>
           </div>
         </>
       )}
@@ -49,4 +55,6 @@ const Basket = () => {
 };
 
 export default Basket;
+
+
 

@@ -1,6 +1,7 @@
 import React from "react";
 import "./Gallery.scss";
-import { useCart } from "../CartContext";
+import { useCart } from "../../context/CartContext";
+import Button from "../Button/Button"; 
 
 const Gallery = ({ images }) => {
   const { dispatch } = useCart();
@@ -16,7 +17,12 @@ const Gallery = ({ images }) => {
           <img src={img.src} alt={img.alt} />
           <div className="gallery-footer">
             <h4>{img.description}</h4>
-            <button onClick={() => handleAddToCart(img)}>Přidej do košíku</button>
+
+        
+            <Button onClick={() => handleAddToCart(img)}>
+              Přidej do košíku
+            </Button>
+
           </div>
         </div>
       ))}

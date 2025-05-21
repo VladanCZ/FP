@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useCart } from "../CartContext"; 
+import { useCart } from "../../context/CartContext"; 
 import "./Navigation.scss";
 import { FaShoppingCart } from "react-icons/fa"; 
 
