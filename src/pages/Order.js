@@ -78,69 +78,93 @@ const Order = () => {
     <div className="order-form">
       <h2>Objednávka</h2>
       <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="firstName"
-          placeholder="Jméno"
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="text"
-          name="lastName"
-          placeholder="Příjmení"
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="text"
-          name="company"
-          placeholder="Název firmy nebo zařízení"
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="tel"
-          name="phone"
-          placeholder="Telefon"
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          onChange={handleChange}
-          required
-        />
-        <textarea
-          name="message"
-          placeholder="Zpráva"
-          onChange={handleChange}
-        />
+  <div className="form-group">
+    <label htmlFor="firstName">Jméno</label>
+    <input
+      id="firstName"
+      type="text"
+      name="firstName"
+      onChange={handleChange}
+      required
+    />
+  </div>
 
-        {/* ✅ Checkbox se souhlasem */}
-        <div className="checkbox-wrapper" style={{ margin: "12px 0" }}>
-          <label>
-            <input
-              type="checkbox"
-              checked={consent}
-              onChange={(e) => setConsent(e.target.checked)}
-              required
-            />{" "}
-            Souhlasím se{" "}
-            <a
-              href="https://www.codaco.cz/bezpecnost-a-ochrana-osobnich-udaju"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              zpracováním osobních údajů
-            </a>
-          </label>
-        </div>
+  <div className="form-group">
+    <label htmlFor="lastName">Příjmení</label>
+    <input
+      id="lastName"
+      type="text"
+      name="lastName"
+      onChange={handleChange}
+      required
+    />
+  </div>
 
-        <button type="submit">Objednat</button>
-      </form>
+  <div className="form-group">
+    <label htmlFor="company">Název firmy nebo zařízení</label>
+    <input
+      id="company"
+      type="text"
+      name="company"
+      onChange={handleChange}
+      required
+    />
+  </div>
+
+  <div className="form-group">
+    <label htmlFor="phone">Telefon</label>
+    <input
+      id="phone"
+      type="tel"
+      name="phone"
+      onChange={handleChange}
+      required
+    />
+  </div>
+
+  <div className="form-group">
+    <label htmlFor="email">E-mail</label>
+    <input
+      id="email"
+      type="email"
+      name="email"
+      onChange={handleChange}
+      required
+    />
+  </div>
+
+  <div className="form-group">
+    <label htmlFor="message">Zpráva (nepovinná)</label>
+    <textarea
+      id="message"
+      name="message"
+      onChange={handleChange}
+      rows={4}
+    />
+  </div>
+
+  <div className="checkbox-wrapper" style={{ margin: "12px 0" }}>
+    <label>
+      <input
+        type="checkbox"
+        checked={consent}
+        onChange={(e) => setConsent(e.target.checked)}
+        required
+      />{" "}
+      Souhlasím se{" "}
+      <a
+        href="https://www.codaco.cz/bezpecnost-a-ochrana-osobnich-udaju"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        zpracováním osobních údajů
+      </a>
+    </label>
+  </div>
+
+  <button type="submit">Objednat</button>
+</form>
+
     </div>
   );
 };

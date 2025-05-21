@@ -1,36 +1,94 @@
 @use "../styles/_variables.scss" as vars;
+
 .order-form {
-  max-width: 400px;
+  max-width: 500px;
   margin: 0 auto;
-  padding: 1rem;
+  padding: 1.5rem;
   font-family: vars.$font-primary;
   color: vars.$base-color;
 
-  
+  h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
 
   form {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 1rem;
 
-    input, textarea {
-      padding: 0.5rem;
-      border: 1px solid #ccc;
-      border-radius: 6px;
+    .form-group {
+      display: flex;
+      flex-direction: column;
+
+      label {
+        margin-bottom: 0.4rem;
+        font-weight: 500;
+        font-size: 0.95rem;
+      }
+
+      input,
+      textarea {
+        padding: 0.6rem 0.75rem;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 1rem;
+        font-family: vars.$font-primary;
+
+        &:focus {
+          outline: none;
+          border-color: vars.$base-color;
+          box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+        }
+      }
+
+      textarea {
+        resize: vertical;
+        min-height: 100px;
+      }
     }
 
-    button {
+    .checkbox-wrapper {
+      display: flex;
+      align-items: flex-start;
+      font-size: 0.9rem;
+
+      label {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        a {
+          color: vars.$base-color;
+          text-decoration: underline;
+
+          &:hover {
+            text-decoration: none;
+          }
+        }
+      }
+
+      input[type="checkbox"] {
+        transform: scale(1.2);
+        margin-right: 0.5rem;
+      }
+    }
+
+    button[type="submit"] {
       background-color: vars.$base-color;
       color: white;
-      padding: 0.5rem;
+      padding: 0.75rem;
       border: none;
       border-radius: 6px;
       cursor: pointer;
-      font-family: vars.$font-primary;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
 
       &:hover {
-        background-color: #0056b3;
+        background-color: darken(vars.$base-color, 10%);
       }
     }
   }
 }
+
