@@ -83,7 +83,7 @@ const PatientsRoom = () => {
 
  return (
      <section className="patientsRoom">
-       <h2>Pokoj pacientů</h2>
+       <h2>Pokoj pacienta</h2>
       <Gallery images={images}/>
      </section>
    );
