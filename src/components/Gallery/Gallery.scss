@@ -23,19 +23,20 @@
 
   background-color: #fff;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 6px 12px rgba(58, 230, 242, 0.4); // výchozí menší stín
   border: 1px solid #e0e0e0;
   padding: 12px;
-  transition: transform 0.2s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; // přidán přechod i na stín
 
   &:hover {
-    transform: translateY(-4px);
+    transform: translateY(-6px);
+    box-shadow: 0 16px 24px rgba(58, 230, 242, 0.6); // větší stín při hoveru
   }
 
   img {
-    width: 100%; 
+    width: 100%;
     max-width: 220px;
-    max-height: 180px; 
+    max-height: 180px;
     height: 100px;
     margin: 0 auto;
     object-fit: contain;
@@ -61,7 +62,5 @@
       margin-bottom: 0.8rem;
       font-size: 0.9rem;
     }
-
-    
   }
 }
