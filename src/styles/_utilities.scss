@@ -1,0 +1,9 @@
+@use "./variables" as vars;
+
+.full-width-section {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  background-color: #182537;
+  padding: 20px 50px 50px 50px;
+  color: vars.$base-color;
+}

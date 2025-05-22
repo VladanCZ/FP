@@ -1,14 +1,15 @@
 @use "../styles/_variables.scss" as vars;
+@use "../styles/utilities";
+
+
 
 .patientsRoom {
-    color: vars.$base-color;
-    font-size: vars.$base-font-size;
-    font-family: vars.$font-primary;
-    padding: 20px;
-    
-    h2 {
+  @extend .full-width-section;
+
+  h2 {
     margin-bottom: 1rem;
     text-align: center;
+    color: white;
   }
 }
 

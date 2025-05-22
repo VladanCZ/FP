@@ -1,14 +1,10 @@
 @use "../styles/_variables.scss" as vars;
+@use "../styles/utilities";
+
+
 
 .sister {
-  width: 100vw;
-  margin-left: calc(-50vw + 50%); 
-  background-color: #182537;
-  padding: 20px;
-
-    color: vars.$base-color;
-    font-size: vars.$base-font-size;
-    font-family: vars.$font-primary;
+  @extend .full-width-section;
 
   h2 {
     margin-bottom: 1rem;
@@ -16,5 +12,6 @@
     color: white;
   }
 }
+
 
 
