@@ -13,7 +13,7 @@
 
   display: flex;
   justify-content: space-evenly;
-  background-color: #182537;
+  background-color: vars.$base-color;
   border-radius: 5px;
   padding: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -23,18 +23,23 @@
     text-decoration: none;
     padding: 10px 16px;
     font-size: 1rem;
-    border-radius: 8px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    border-radius: 10px;
+    background-color: vars.$base-color;
+    box-shadow: 0 4px 8px vars.$base-color;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease,
+      background-color 0.3s ease;
 
     &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 24px vars.$shadow-main-color;
       background-color: #2c3e50;
-      transform: scale(1.05) translateY(-3px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     }
   }
 }
 
-/* počet položek v košíku */
+/* Košík */
 .cart-link {
   position: relative;
   display: flex;
@@ -57,7 +62,7 @@
   }
 }
 
-/* Tablety mezi 768px a 1024px */
+/* Tablety */
 @media (min-width: 768px) and (max-width: 1024px) {
   .navigation {
     flex-direction: row;
@@ -70,7 +75,7 @@
   }
 }
 
-/* Mobilní zařízení (do 767px) */
+/* Mobily */
 @media (max-width: 767px) {
   .navigation {
     flex-direction: column;
