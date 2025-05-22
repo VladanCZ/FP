@@ -1,14 +1,20 @@
 @use "../styles/_variables.scss" as vars;
 
 .sister {
-  color: vars.$base-color;
-  font-family: vars.$font-primary;
-  font-size: vars.$base-font-size;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%); 
+  background-color: #182537;
   padding: 20px;
+
+    color: vars.$base-color;
+    font-size: vars.$base-font-size;
+    font-family: vars.$font-primary;
 
   h2 {
     margin-bottom: 1rem;
     text-align: center;
+    color: white;
   }
-}  
+}
+
 
