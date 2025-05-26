@@ -79,7 +79,6 @@ const Order = () => {
     <div className="order-form">
       <h2>Objednávka</h2>
       <form onSubmit={handleSubmit}>
-        {/* Formulářové pole - nezměněné */}
         <div className="form-group">
           <label htmlFor="firstName">Jméno</label>
           <input id="firstName" type="text" name="firstName" onChange={handleChange} required />
