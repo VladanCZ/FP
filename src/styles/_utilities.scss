@@ -2,12 +2,15 @@
 
 
 .full-width-section {
-  width: 100%;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
   background-color: vars.$base-color; 
   padding: 20px 50px 50px 50px;
-  color: vars.$base-color;
-  overflow-x: hidden; 
+  color: white;
+  overflow-x: hidden;
+  box-sizing: border-box;
 }
+
 
 @mixin neon-heading {
   margin-bottom: 1rem;
