@@ -46,7 +46,7 @@ const Basket = () => {
             ))}
           </ul>
           <div className="basket-actions">
-            <Button onClick={() => navigate("/Order")}>Pokračovat</Button>
+            <Button onClick={() => navigate("/Objednavka")}>Pokračovat</Button>
           </div>
         </>
       )}

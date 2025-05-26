@@ -23,7 +23,7 @@ const Navigation = () => {
           {item.name}
         </Link>
       ))}
-      <Link to="/Basket" className="nav-link cart-link">
+      <Link to="/Kosik" className="nav-link cart-link">
         <FaShoppingCart size={20} />
         {totalItems > 0 && <span className="cart-count">{totalItems}</span>}
       </Link>

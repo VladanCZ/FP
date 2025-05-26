@@ -20,8 +20,8 @@ function App() {
           <Route path="Socialni-zarizeni" element={<SanitaryFacilities />} />
           <Route path="Chodba" element={<Corridor />} />
           <Route path="Vchod" element={<Entrance />} />
-          <Route path="Kosikk" element={<Basket />} />
-          <Route path="Objednavka" element={<Order />} /> {/* ← přidáno */}
+          <Route path="Kosik" element={<Basket />} />
+          <Route path="Objednavka" element={<Order />} /> 
         </Route>
       </Routes>
     </BrowserRouter>
