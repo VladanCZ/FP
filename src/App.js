@@ -15,13 +15,13 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />}>
-          <Route path="Sister" element={<Sister />} />
-          <Route path="PatientsRoom" element={<PatientsRoom />} />
-          <Route path="SanitaryFacilities" element={<SanitaryFacilities />} />
-          <Route path="Corridor" element={<Corridor />} />
-          <Route path="Entrance" element={<Entrance />} />
-          <Route path="Basket" element={<Basket />} />
-          <Route path="Order" element={<Order />} /> {/* ← přidáno */}
+          <Route path="Sesterna" element={<Sister />} />
+          <Route path="Pokoj-pacienta" element={<PatientsRoom />} />
+          <Route path="Socialni-zarizeni" element={<SanitaryFacilities />} />
+          <Route path="Chodba" element={<Corridor />} />
+          <Route path="Vchod" element={<Entrance />} />
+          <Route path="Kosikk" element={<Basket />} />
+          <Route path="Objednavka" element={<Order />} /> {/* ← přidáno */}
         </Route>
       </Routes>
     </BrowserRouter>

@@ -1,11 +1,12 @@
 @use "./variables" as vars;
 
+
 .full-width-section {
   width: 100%;
-  margin-left: calc(-50vw + 50%);
-  background-color: #182537;
+  background-color: vars.$base-color; 
   padding: 20px 50px 50px 50px;
   color: vars.$base-color;
+  overflow-x: hidden; 
 }
 
 @mixin neon-heading {
@@ -19,6 +20,7 @@
     0 0 40px rgba(58, 230, 242, 0.4);
   animation: neonBlink 3s ease-in-out infinite alternate;
 }
+
 @keyframes neonBlink {
   0% {
     text-shadow:
@@ -36,3 +38,4 @@
       0 0 40px rgba(58, 230, 242, 0.4);
   }
 }
+

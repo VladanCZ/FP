@@ -5,11 +5,11 @@ import "./Navigation.scss";
 import { FaShoppingCart } from "react-icons/fa"; 
 
 const navItems = [
-  { name: "Sesterna", path: "/Sister" },
-  { name: "Pokoj pacienta", path: "/PatientsRoom" },
-  { name: "Sociální zařízení", path: "/SanitaryFacilities" },
-  { name: "Chodba", path: "/Corridor" },
-  { name: "Vchod", path: "/Entrance" },
+  { name: "Sesterna", path: "/Sesterna" },
+  { name: "Pokoj pacienta", path: "/Pokoj-pacienta" },
+  { name: "Sociální zařízení", path: "/Socialni-zarizeni" },
+  { name: "Chodba", path: "/Chodba" },
+  { name: "Vchod", path: "/Vchod" },
 ];
 
 const Navigation = () => {
