@@ -18,10 +18,10 @@ const Gallery = ({ images }) => {
           <div className="gallery-footer">
             <h4>{img.description}</h4>
 
-        
-            <Button onClick={() => handleAddToCart(img)}>
+            <Button onClick={() => handleAddToCart(img)}>  
               Přidej do košíku
             </Button>
+            
 
           </div>
         </div>

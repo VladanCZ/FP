@@ -1,10 +1,25 @@
+/* 
+ - createContext – for data sharing (so that anyone in the application
+ can "see" and change the cart)
+ - useContext – to easily get this data where you need it
+ - useReducer – for managing states (what should be in the cart)
+ - useEffect – to save the cart to localStorage, so it survives page refresh */
 import React, { createContext, useContext, useReducer, useEffect } from "react";
 
-const CartContext = createContext();
+/*Creates a place to store and
+ share cart information between components. */
+const CartContext = createContext(); 
 
-
+/*When loading the page, it looks in localStorage – if there is no 
+cart already stored there.
+– If there is nothing there, it starts with an empty cart.*/
 const initialCart = JSON.parse(localStorage.getItem("cart")) || [];
 
+/* Function, state – current cart status (product field),action – what should
+ happen (add, delete, change quantity)
+   1️) Checks if the product is already in the cart.
+   2️) If it is – increases its quantity by 1.
+   3️) If it is not – adds a new product to the cart with a quantity of 1. */
 const cartReducer = (state, action) => {
   switch (action.type) {
     case "ADD_ITEM":
