@@ -33,6 +33,7 @@ const cartReducer = (state, action) => {
       }
       return [...state, { ...action.payload, quantity: 1 }];
 
+/*manually set the exact number of items in the cart */
     case "UPDATE_QUANTITY":
       return state.map(item =>
         item.id === action.payload.id
@@ -40,25 +41,36 @@ const cartReducer = (state, action) => {
           : item
       );
 
+/* Loop through everything in the cart (state) and return a new 
+version of the array that contains everything except the item 
+with the same ID as the one in action.payload.*/
     case "REMOVE_FROM_CART":
       return state.filter(item => item.id !== action.payload.id);
 
     case "CLEAR_CART":
       return [];
 
+      /* If no case matches
+returns the state; Returns the original state unchanged*/
     default:
       return state;
   }
 };
 
+/*creates cart state management - cart contains data and 
+"dispatch" is used to change it according to the rules in the 
+"cartReducer" function. The default state is loaded from localStorage.*/
 export const CartProvider = ({ children }) => {
   const [cart, dispatch] = useReducer(cartReducer, initialCart);
 
-  
+  /*When changing the contents of the cart, the current state is saved
+   to localStorage. The state is preserved even after reloading the page.*/
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
 
+  /*makes cart information and editing functionality 
+  available to all nested components*/
   return (
     <CartContext.Provider value={{ cart, dispatch }}>
       {children}
@@ -66,4 +78,5 @@ export const CartProvider = ({ children }) => {
   );
 };
 
+/*get cart data in other parts of the application.*/
 export const useCart = () => useContext(CartContext);
