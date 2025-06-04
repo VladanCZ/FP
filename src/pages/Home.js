@@ -1,5 +1,5 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";//to find out which page of the application you are currently on.
 import Navigation from "../components/Navigation/Navigation";
 import { Outlet } from "react-router-dom";
 import "./Home.scss";

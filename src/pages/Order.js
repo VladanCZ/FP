@@ -6,6 +6,7 @@ import emailjs from "@emailjs/browser";
 import Button from "../components/Button/Button"; 
 import "./Order.scss";
 
+//default values ​​for each form field.
 const Order = () => {
   const [formData, setFormData] = useState({
     firstName: "",
@@ -16,10 +17,11 @@ const Order = () => {
     message: "",
   });
 
-  const [consent, setConsent] = useState(false);
-  const navigate = useNavigate();
-  const { cart, dispatch } = useCart();
+  const [consent, setConsent] = useState(false);//checkbox status
+  const navigate = useNavigate();//redirects the user to the home page after submitting the order
+  const { cart, dispatch } = useCart();//After sending the order, the cart will be emptied.
 
+  //generating an order identifier
   const generateOrderId = () => {
     const now = new Date();
     const datePart = now.toISOString().slice(0, 10).replace(/-/g, '');
@@ -27,6 +29,7 @@ const Order = () => {
     return `Codaco-${datePart}-${randomPart}`;
   };
 
+  //processing changes to values ​​in forms
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -40,12 +43,15 @@ const Order = () => {
       return;
     }
 
+   //generating an order identifier
     const orderId = generateOrderId();
 
+    //list of items in an email
     const orderDetails = cart
       .map((item) => `✅ ${item.description} – ${item.quantity} ks`)
       .join("<br>");
 
+      //info for email template to emailjs
     const templateParams = {
       order_id: orderId,
       from_name: `${formData.firstName} ${formData.lastName}`,

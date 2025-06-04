@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";//reaction to URL address changes
 import Order from "./pages/Order";
 
 import Home from "./pages/Home";
