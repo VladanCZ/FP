@@ -71,7 +71,7 @@
   }
 }
 
-/* "bounce" animation */
+// "bounce" animation 
 @keyframes bounce {
   0% {
     transform: translateX(50%) scale(1);
@@ -87,7 +87,7 @@
   }
 }
 
-/* Tablety */
+// Tablets
 @media (min-width: 768px) {
   .navigation {
     flex-direction: row;
@@ -106,7 +106,7 @@
   }
 }
 
-/* Desktop */
+// Desktop 
 @media (min-width: 1024px) {
   .navigation {
     flex-direction: row;

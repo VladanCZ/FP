@@ -1,12 +1,14 @@
 import React from "react";
 import "./Gallery.scss";
-import { useCart } from "../../context/CartContext";
+import { useCart } from "../../context/CartContext"; // hook-access to the cart context
 import Button from "../Button/Button"; 
 
+//component - props accepts an array of objects images{id, src,alt,...}
 const Gallery = ({ images }) => {
-  const { dispatch } = useCart();
+  const { dispatch } = useCart(); //Accessing the cart context
+                                    
 
-  const handleAddToCart = (item) => {
+  const handleAddToCart = (item) => {   //Add to Cart function
     dispatch({ type: "ADD_ITEM", payload: item });
   };
 
