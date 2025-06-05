@@ -1,5 +1,7 @@
 @use "../../styles/variables.scss" as vars;
 
+/*CSS modules: Ensure that styles are local 
+and do not affect the global space*/
 .button {
   background-color: vars.$base-color;
   color: white;
